@@ -10,21 +10,30 @@ public class Duke {
         System.out.println("Hello there General Kenobi! I'm\n" + logo);
         System.out.println("How may I be at your pleasure today?");
         Scanner sc = new Scanner(System.in);
-        String[] storedTexts = new String[100];
+        Task[] storedTasks = new Task[100];
         int index = 0;
         while (true) {
             String input = sc.nextLine();
+            String[] splitInput = input.split(" ");
             if(input.equals("list")){
+                System.out.println("\tHere are the tasks in your list:");
                 for(int i=0;i<index;i++){
-                    System.out.println("\t"+(i+1) +". "+ storedTexts[i]);
+                    System.out.println("\t"+(i+1) +". "+ storedTasks[i].getTaskInfo());
                 }
             }
             else if (input.equals("bye")) {
                 System.out.println("Bye. May the Force be with you.");
                 break;
             }
+            else if (splitInput[0].equals("done")){
+                int taskNum = Integer.parseInt(splitInput[1])-1;
+                storedTasks[taskNum].completeTask();
+                String task = storedTasks[taskNum].getTaskName();
+                System.out.println("\tNice! I've marked this task as done: ");
+                System.out.println("\t  " + storedTasks[taskNum].getTaskInfo());
+            }
             else{
-                storedTexts[index] = input;
+                storedTasks[index] = new Task(input);
                 index += 1;
                 System.out.println("\t" + "added: " + input);
             }

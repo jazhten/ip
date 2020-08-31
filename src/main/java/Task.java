@@ -10,16 +10,16 @@ public class Task {
     public void completeTask(){
         this.isDone = true;
     }
-    /*
-    public String getStatusIcon(){
-        return (isDone ? "\u2713" : "\u2718");
-    }*/
-
+/*
     public String getTaskName(){
         return taskName;
-    }
+    }*/
+
     public String getTaskInfo(){
         return ((isDone ? "[\u2713] " : "[\u2718] ") + taskName);
     }
-
+    @Override
+    public String toString(){
+        return ((isDone ? "[\u2713] " : "[\u2718] ") + taskName);
+    }
 }

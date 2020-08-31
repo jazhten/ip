@@ -5,7 +5,7 @@ public class Duke {
     public static int getFirstSpace(String input){
         return input.indexOf(" ");
     }
-    
+
     public static void printAddResponse(Task task, int index){
         System.out.println("\tGot it. I've added this task:");
         System.out.println("\t" + task.toString());
@@ -17,8 +17,8 @@ public class Duke {
                 + "| | | | | | | |/ / _ \\\n"
                 + "| |_| | |_| |   <  __/\n"
                 + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo);
-        //System.out.println("How may I be at your pleasure today?");
+        System.out.println("Hello there General Kenobi! I am\n" + logo);
+        System.out.println("How may I be at your pleasure today?");
         Scanner sc = new Scanner(System.in);
         Task[] storedTasks = new Task[100];
         int tasksIndex = 0;

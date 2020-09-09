@@ -78,9 +78,11 @@ public class InputManager {
             StringOperations.printAddResponse(storedTasks[currentTaskIndex], currentTaskIndex + 1);
             this.currentTaskIndex += 1;
             return;
+            
         case "":
             System.out.println(DukeException.ExceptionResponse.EXCEPTION_UNIDENTIFIED_INPUT);
             return;
+
         default:
             System.out.println(DukeException.ExceptionResponse.EXCEPTION_UNIDENTIFIED_INPUT);
         }

@@ -40,4 +40,16 @@ Hello there General Kenobi. You are our last hope.
 ♘ : 	Got it. I've added this task:
 	[E][✘]  project meeting  (at: Mon 2-4pm)
 	Now you have 7 tasks in the list
+♘ : 	Hmmm removed this task, I have:
+	  [D][✘]  return book  (by: June 6th)
+	 Only 6 tasks remain...
+♘ : 	Here are the tasks in your list:
+	1. [T][✓]  read book
+	2. [E][✘]  project meeting  (at: Aug 6th 2-4pm)
+	3. [T][✓]  join sports club
+	4. [T][✘]  borrow book
+	5. [D][✘]  return book  (by: Sunday)
+	6. [E][✘]  project meeting  (at: Mon 2-4pm)
+♘ : 	Nice! I've marked this task as done: 
+	  [T][✓]  read book
 ♘ : Bye. May the Force be with you.

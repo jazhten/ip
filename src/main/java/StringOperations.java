@@ -1,3 +1,6 @@
+import EntryItems.Task;
+import java.util.ArrayList;
+
 public class StringOperations {
 
     /*
@@ -23,19 +26,25 @@ public class StringOperations {
     /*
     Prints all tasks in the list with the letter heading [D],[E] and status of completion.
      */
-    public static void printList(Task[] tasks, int taskIndex) {
+    public static void printList(ArrayList<Task> tasks, int taskIndex) {
         System.out.println("\tHere are the tasks in your list:");
         for (int i = 0; i < taskIndex; i++) {
-            System.out.println("\t" + (i + 1) + ". " + tasks[i].toString());
+            System.out.println("\t" + (i + 1) + ". " + tasks.get(i).toString());
         }
     }
 
     /*
     Function to print the response when a task is marked as completed by the user.
      */
-    public static void completeTask(Task[] tasks, int taskIndex) {
+    public static void completeTask(ArrayList<Task> tasks, int taskIndex) {
         System.out.println("\tNice! I've marked this task as done: ");
-        System.out.println("\t  " + tasks[taskIndex].toString());
+        System.out.println("\t  " + tasks.get(taskIndex).toString());
+    }
+
+    public static void deleteTask(Task tasks, int numTaskRemaining) {
+        System.out.println("\tHmmm removed this task, I have:");
+        System.out.println("\t  " + tasks.toString());
+        System.out.println(String.format("\t Only %d tasks remain...",numTaskRemaining));
     }
 
     /*

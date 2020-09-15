@@ -9,6 +9,18 @@ public class Deadline extends Task {
     }
 
     @Override
+    public String saveValue() {
+        String result;
+        if (this.isDone) {
+            result =  "E|1|";
+        } else {
+            result =  "E|0|";
+        }
+        result  += (this.taskName + "|" + this.by);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "[D]" + super.toString() + " (by: " + by + ")";
     }

@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import EntryItems.Event;
 import EntryItems.Task;
 import EntryItems.Todo;
 import java.util.ArrayList;
+=======
+import java.io.FileNotFoundException;
+>>>>>>> branch-Level-7
 
 public class InputManager {
     protected boolean isExit;
@@ -11,7 +15,16 @@ public class InputManager {
     public InputManager() {
         this.isExit = false;
         this.currentTaskIndex = 0;
+<<<<<<< HEAD
         storedTasks = new ArrayList<Task>();
+=======
+        try {
+            storedTasks = SaveFile.loadSaveFile(size);
+        } catch (FileNotFoundException e) {
+            storedTasks = new Task[size];
+        }
+        this.currentTaskIndex = 3; //replace with .size() when its an array list
+>>>>>>> branch-Level-7
     }
 
     public boolean getTerminationStatus() {
@@ -41,6 +54,7 @@ public class InputManager {
                 return;
             }
             StringOperations.completeTask(storedTasks, taskNum);
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
 
         case "delete":
@@ -68,6 +82,7 @@ public class InputManager {
             storedTasks.add(new Todo(description));
             StringOperations.printAddResponse(storedTasks.get(currentTaskIndex), currentTaskIndex + 1);
             this.currentTaskIndex += 1;
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
 
         case "deadline":
@@ -82,6 +97,7 @@ public class InputManager {
             storedTasks.add(new Deadline(deadlineInputDescription, deadlineOperation));
             StringOperations.printAddResponse(storedTasks.get(currentTaskIndex), currentTaskIndex + 1);
             this.currentTaskIndex += 1;
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
 
         case "event":
@@ -96,6 +112,7 @@ public class InputManager {
             storedTasks.add(new Event(eventInputDescription, eventOperation));
             StringOperations.printAddResponse(storedTasks.get(currentTaskIndex), currentTaskIndex + 1);
             this.currentTaskIndex += 1;
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
 
         case "":

@@ -1,3 +1,5 @@
+import EntryItems.Task;
+
 public class Deadline extends Task {
     String by;
 

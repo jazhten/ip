@@ -1,3 +1,5 @@
+package EntryItems;
+
 public class Event extends Task {
     String timeFrame;
 

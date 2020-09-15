@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 public class InputManager {
     private boolean isExit;
     private int currentTaskIndex;
@@ -6,7 +8,12 @@ public class InputManager {
     public InputManager(int size) {
         this.isExit = false;
         this.currentTaskIndex = 0;
-        storedTasks = new Task[size];
+        try {
+            storedTasks = SaveFile.loadSaveFile(size);
+        } catch (FileNotFoundException e) {
+            storedTasks = new Task[size];
+        }
+        this.currentTaskIndex = 3; //replace with .size() when its an array list
     }
 
     public boolean getTerminationStatus() {
@@ -36,6 +43,7 @@ public class InputManager {
                 return;
             }
             StringOperations.completeTask(storedTasks, taskNum);
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
 
         case "todo":
@@ -49,6 +57,7 @@ public class InputManager {
             storedTasks[currentTaskIndex] = new Todo(description);
             StringOperations.printAddResponse(storedTasks[currentTaskIndex], currentTaskIndex + 1);
             this.currentTaskIndex += 1;
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
 
         case "deadline":
@@ -63,6 +72,7 @@ public class InputManager {
             storedTasks[currentTaskIndex] = new Deadline(deadlineInputDescription, deadlineOperation);
             StringOperations.printAddResponse(storedTasks[currentTaskIndex], currentTaskIndex + 1);
             this.currentTaskIndex += 1;
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
 
         case "event":
@@ -77,6 +87,7 @@ public class InputManager {
             storedTasks[currentTaskIndex] = new Event(eventInputDescription, eventOperation);
             StringOperations.printAddResponse(storedTasks[currentTaskIndex], currentTaskIndex + 1);
             this.currentTaskIndex += 1;
+            SaveFile.saveData(storedTasks,currentTaskIndex);
             return;
             
         case "":

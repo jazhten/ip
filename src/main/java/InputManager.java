@@ -1,19 +1,16 @@
 import EntryItems.Event;
 import EntryItems.Task;
 import EntryItems.Todo;
-
 import java.util.ArrayList;
 
 public class InputManager {
-    private boolean isExit;
-    private int currentTaskIndex;
-    //protected Task[] storedTasks;   //TODO : CHANGE TO ARRAY LIST
-    protected static ArrayList<Task> storedTasks;//= new ArrayList<>();
+    protected boolean isExit;
+    protected int currentTaskIndex;
+    protected static ArrayList<Task> storedTasks;
 
-    public InputManager(int size) {
+    public InputManager() {
         this.isExit = false;
         this.currentTaskIndex = 0;
-        //storedTasks = new Task[size];
         storedTasks = new ArrayList<Task>();
     }
 

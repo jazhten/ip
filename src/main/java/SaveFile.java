@@ -1,19 +1,24 @@
+import EntryItems.Event;
+import EntryItems.Task;
+import EntryItems.Todo;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SaveFile {
 
     //open
 
-    public static Task[] loadSaveFile(int size) throws FileNotFoundException {
+    public static ArrayList<Task> loadSaveFile() throws FileNotFoundException {
         File directory = new File("data");
-        if (! directory.exists()){
+        if (!directory.exists()) {
             directory.mkdir();
         }
-        Task[] loadedTasks = new Task[size];
+        ArrayList<Task> loadedTasks = new ArrayList<>();
         File f = new File("data/Duke.txt"); // create a File for the given file path
         Scanner s = new Scanner(f); // create a Scanner using the File as the source
         int index = 0;
@@ -21,21 +26,21 @@ public class SaveFile {
             String[] entry = s.nextLine().split("\\|");
             switch (entry[0]) {
             case "T":
-                loadedTasks[index] = new Todo(entry[2]);
+                loadedTasks.add(new Todo(entry[2]));
                 if (entry[1].equals("1")) {
-                    loadedTasks[index].MarkDone();
+                    loadedTasks.get(index).MarkDone();
                 }
                 break;
             case "E":
-                loadedTasks[index] = new Event(entry[2], entry[3]);
+                loadedTasks.add(new Event(entry[2], entry[3]));
                 if (entry[1].equals("1")) {
-                    loadedTasks[index].MarkDone();
+                    loadedTasks.get(index).MarkDone();
                 }
                 break;
             case "D":
-                loadedTasks[index] = new Deadline(entry[2], entry[3]);
+                loadedTasks.add(new Deadline(entry[2], entry[3]));
                 if (entry[1].equals("1")) {
-                    loadedTasks[index].MarkDone();
+                    loadedTasks.get(index).MarkDone();
                 }
                 break;
             }
@@ -45,11 +50,11 @@ public class SaveFile {
     }
 
 
-    public static void saveData(Task[] taskList, int index) {
+    public static void saveData(ArrayList<Task> taskList) {
         try {
             FileWriter fw = new FileWriter("data/Duke.txt");
-            for (int i = 0; i < index; i++) {
-                fw.write(taskList[i].saveValue() + System.lineSeparator());
+            for (Task taskItem : taskList) {
+                fw.write(taskItem.saveValue() + System.lineSeparator());
             }
             fw.close();
         } catch (IOException e) {

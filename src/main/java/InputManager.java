@@ -1,30 +1,25 @@
-<<<<<<< HEAD
 import EntryItems.Event;
 import EntryItems.Task;
 import EntryItems.Todo;
+
 import java.util.ArrayList;
-=======
 import java.io.FileNotFoundException;
->>>>>>> branch-Level-7
 
 public class InputManager {
     protected boolean isExit;
     protected int currentTaskIndex;
-    protected static ArrayList<Task> storedTasks;
+    protected ArrayList<Task> storedTasks;
 
     public InputManager() {
         this.isExit = false;
-        this.currentTaskIndex = 0;
-<<<<<<< HEAD
-        storedTasks = new ArrayList<Task>();
-=======
+        //this.currentTaskIndex = 0;
+        //ArrayList<Task> storedTasks;
         try {
-            storedTasks = SaveFile.loadSaveFile(size);
+            storedTasks = SaveFile.loadSaveFile();
         } catch (FileNotFoundException e) {
-            storedTasks = new Task[size];
+            storedTasks = new ArrayList<Task>();
         }
-        this.currentTaskIndex = 3; //replace with .size() when its an array list
->>>>>>> branch-Level-7
+        this.currentTaskIndex = storedTasks.size(); //replace with .size() when its an array list
     }
 
     public boolean getTerminationStatus() {
@@ -54,7 +49,7 @@ public class InputManager {
                 return;
             }
             StringOperations.completeTask(storedTasks, taskNum);
-            SaveFile.saveData(storedTasks,currentTaskIndex);
+            SaveFile.saveData(storedTasks);
             return;
 
         case "delete":
@@ -82,7 +77,7 @@ public class InputManager {
             storedTasks.add(new Todo(description));
             StringOperations.printAddResponse(storedTasks.get(currentTaskIndex), currentTaskIndex + 1);
             this.currentTaskIndex += 1;
-            SaveFile.saveData(storedTasks,currentTaskIndex);
+            SaveFile.saveData(storedTasks);
             return;
 
         case "deadline":
@@ -97,7 +92,7 @@ public class InputManager {
             storedTasks.add(new Deadline(deadlineInputDescription, deadlineOperation));
             StringOperations.printAddResponse(storedTasks.get(currentTaskIndex), currentTaskIndex + 1);
             this.currentTaskIndex += 1;
-            SaveFile.saveData(storedTasks,currentTaskIndex);
+            SaveFile.saveData(storedTasks);
             return;
 
         case "event":
@@ -112,7 +107,7 @@ public class InputManager {
             storedTasks.add(new Event(eventInputDescription, eventOperation));
             StringOperations.printAddResponse(storedTasks.get(currentTaskIndex), currentTaskIndex + 1);
             this.currentTaskIndex += 1;
-            SaveFile.saveData(storedTasks,currentTaskIndex);
+            SaveFile.saveData(storedTasks);
             return;
 
         case "":

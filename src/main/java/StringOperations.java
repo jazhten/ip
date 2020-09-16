@@ -1,4 +1,5 @@
 import EntryItems.Task;
+
 import java.util.ArrayList;
 
 public class StringOperations {
@@ -27,9 +28,13 @@ public class StringOperations {
     Prints all tasks in the list with the letter heading [D],[E] and status of completion.
      */
     public static void printList(ArrayList<Task> tasks, int taskIndex) {
-        System.out.println("\tHere are the tasks in your list:");
-        for (int i = 0; i < taskIndex; i++) {
-            System.out.println("\t" + (i + 1) + ". " + tasks.get(i).toString());
+        if (taskIndex > 0) {
+            System.out.println("\tHere are the tasks in your list:");
+            for (int i = 0; i < taskIndex; i++) {
+                System.out.println("\t" + (i + 1) + ". " + tasks.get(i).toString());
+            }
+        } else {
+            System.out.println("\tHey there young Padawan, your list seems to be empty!");
         }
     }
 
@@ -44,7 +49,7 @@ public class StringOperations {
     public static void deleteTask(Task tasks, int numTaskRemaining) {
         System.out.println("\tHmmm removed this task, I have:");
         System.out.println("\t  " + tasks.toString());
-        System.out.println(String.format("\t Only %d tasks remain...",numTaskRemaining));
+        System.out.println("\t Only " + numTaskRemaining + " tasks remain...");
     }
 
     /*
@@ -53,7 +58,7 @@ public class StringOperations {
      */
     public static String getDescription(String input) {
         int startPoint = input.indexOf("/");
-        String output = "";
+        String output;
         try {
             output = input.substring(getFirstSpace(input), startPoint);
             return output;

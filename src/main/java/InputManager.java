@@ -64,6 +64,7 @@ public class InputManager {
                 return;
             }
             StringOperations.deleteTask(targetTask, storedTasks.size());
+            SaveFile.saveData(storedTasks);
             return;
 
         case "todo":

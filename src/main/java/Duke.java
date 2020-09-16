@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Duke {
 
-    public static void main(String[] args) throws DukeException {
+    public static void main(String[] args) {
         StringOperations.printIntroduction();
         Scanner inputScanner = new Scanner(System.in);
         InputManager manager = new InputManager();

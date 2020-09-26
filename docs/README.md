@@ -7,6 +7,7 @@ Add a task to the current TaskList
     todo
     deadline
     event
+   <br>
 ### List Tasks
 Lists the current tasks and their state.
 ### Delete Tasks
@@ -24,7 +25,7 @@ __Handled by program__ <br>
 Loads the previously written state of the taskList to the current instance. 
 ## Usage
 
-### `Keyword` - Name of feature
+### `Keyword` - Feature Name in lower case
 
 Insert `keyword` followed by the desired action like 'find' or 'add'.
 Example of usage: 

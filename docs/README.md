@@ -11,19 +11,25 @@ Add a task to the current TaskList
 
 ### List Tasks
 Lists the current tasks and their state.
+
 ### Delete Tasks
 Delete a task from the task list, ignores completion status
+
 ### Complete Tasks
 Marks the targeted task as completed. Shown in list command as a tick or cross. 
+
 ### Find Tasks
 Find tasks in the tasklist. <br>
  Searches for instance of word input and returns it in the form of a list.
+
 ### Save taskList state
-_Handled by program__ <br>
+__Handled by program__ <br>
 Saves the current state of the tasklist to the disk.
+
 ### Load saved taskList
 __Handled by program__ <br>
 Loads the previously written state of the taskList to the current instance. 
+
 ## Usage
 
 ### `Keyword` - Feature Name in lower case

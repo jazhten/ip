@@ -1,20 +1,37 @@
 # User Guide
-
+For DukeWars
 ## Features 
-
-### Feature 1 
-Description of feature.
-
+### Add Tasks
+Add a task to the current TaskList
+#### Types of tasks : 
+    todo
+    deadline
+    event
+### List Tasks
+Lists the current tasks and their state.
+### Delete Tasks
+Delete a task from the task list, ignores completion status
+### Complete Tasks
+Marks the targeted task as completed. Shown in list command as a tick or cross. 
+### Find Tasks
+Find tasks in the tasklist. <br>
+ Searches for instance of word input and returns it in the form of a list.
+### Save taskList state
+_Handled by program__ <br>
+Saves the current state of the tasklist to the disk.
+### Load saved taskList
+__Handled by program__ <br>
+Loads the previously written state of the taskList to the current instance. 
 ## Usage
 
-### `Keyword` - Describe action
+### `Keyword` - Name of feature
 
-Describe action and its outcome.
-
+Insert `keyword` followed by the desired action like 'find' or 'add'.
 Example of usage: 
 
-`keyword (optional arguments)`
+`event project meeting /at Aug 6th 2-4pm`
 
 Expected outcome:
 
-`outcome`
+`Got it. I've added this task:` <br>
+ `[E][✘]  project meeting  (at: Aug 6th 2-4pm)`

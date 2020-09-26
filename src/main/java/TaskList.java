@@ -57,11 +57,21 @@ public class TaskList {
         return taskList.get(taskIndex);
     }
 
-    public static Task queryLatestTask(){
+    public static Task queryLatestTask() {
         return taskList.get(currentTaskIndex);
     }
 
     public static void insertTask(Task inputTask) {
         taskList.add(inputTask);
+    }
+
+    public static ArrayList<Task> findTasks(String searchString) {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        for (Task currentTask : taskList) {
+            if (currentTask.getDescription().contains(searchString)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
     }
 }

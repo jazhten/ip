@@ -42,6 +42,13 @@ public class Ui {
         }
     }
 
+    public static void printSearchedList(ArrayList<Task> tasks, int taskIndex) {
+        System.out.println("\tHere are tasks matching the description we found in your list:");
+        for (int i = 0; i < taskIndex; i++) {
+            System.out.println("\t" + (i + 1) + ". " + tasks.get(i).toString());
+        }
+    }
+
     /**
      * Function to print the response when a task is marked as completed by the user.
      **/
@@ -72,9 +79,14 @@ public class Ui {
         System.out.println(DukeException.ExceptionResponse.EXCEPTION_COMPLETE_UNDEFINED_TASK);
     }
 
+    public static void printNotFoundException() {
+        System.out.println(DukeException.ExceptionResponse.EXCEPTION_NOT_FOUND_EXCEPTION);
+    }
+
     public static void endProgram() {
         System.out.println("Bye. May the Force be with you.");
 
     }
+
 
 }

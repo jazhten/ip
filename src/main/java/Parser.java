@@ -2,6 +2,8 @@ import EntryItems.Event;
 import EntryItems.Task;
 import EntryItems.Todo;
 
+import java.util.ArrayList;
+
 
 public class Parser {
     protected boolean isExit;
@@ -72,6 +74,28 @@ public class Parser {
             Storage.saveData(TaskList.getTaskList());
             return;
 
+        case "find":
+            String searchString;
+            try {
+                searchString = input.substring(StringOperations.getFirstSpace(input));
+            } catch (DukeException e) {
+                Ui.printBasicDukeException(e);
+                return;
+            }
+            ArrayList<Task> searchResults = null;
+            searchResults = TaskList.findTasks(searchString);
+            int numResults = 0;
+            try {
+                numResults = searchResults.size();
+            } catch (NullPointerException e) {
+                Ui.printNotFoundException();
+            }
+            if (numResults == 0) {
+                Ui.printNotFoundException();
+                return;
+            }
+            Ui.printSearchedList(searchResults, numResults);
+            return;
         case "deadline":
             String deadlineOperation;
             try {

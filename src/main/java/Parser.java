@@ -2,6 +2,10 @@ import EntryItems.Event;
 import EntryItems.Task;
 import EntryItems.Todo;
 
+
+import java.util.ArrayList;
+
+
 /**
  * Used to parse all the user input
  * Tracks if the 'bye' command has been sent and sends the signal to Duke to terminate
@@ -81,6 +85,28 @@ public class Parser {
             Storage.saveData(TaskList.getTaskList());
             return;
 
+        case "find":
+            String searchString;
+            try {
+                searchString = input.substring(StringOperations.getFirstSpace(input));
+            } catch (DukeException e) {
+                Ui.printBasicDukeException(e);
+                return;
+            }
+            ArrayList<Task> searchResults;
+            searchResults = TaskList.findTasks(searchString);
+            int numResults = 0;
+            try {
+                numResults = searchResults.size();
+            } catch (NullPointerException e) {
+                Ui.printNotFoundException();
+            }
+            if (numResults == 0) {
+                Ui.printNotFoundException();
+                return;
+            }
+            Ui.printSearchedList(searchResults, numResults);
+            return;
         case "deadline":
             String deadlineOperation;
             try {

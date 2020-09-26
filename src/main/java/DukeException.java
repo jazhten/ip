@@ -10,8 +10,8 @@ public class DukeException extends Exception {
         EXCEPTION_NO_FORMAT_IDENTIFIER("\tThe force requires you provide the correct identifier (/by /at)."),
         EXCEPTION_COMPLETE_UNDEFINED_TASK("\tToo hasty you are, the task has not been defined yet"),
         EXCEPTION_UNIDENTIFIED_INPUT("\tThese are not the inputs you are looking for...Please input something"),
-        EXCEPTION_IO_EXCEPTION("\tHmmm, it seems there has been an IO Error, why don't you give it another try");
-
+        EXCEPTION_IO_EXCEPTION("\tHmmm, it seems there has been an IO Error, why don't you give it another try"),
+        EXCEPTION_NOT_FOUND_EXCEPTION("\tHey buddy, it seems like we don't have what you're looking for!");
         private String exception;
 
         ExceptionResponse(String exceptionMessage) {

@@ -23,6 +23,9 @@ public class Task {
         this.isDone = true;
     }
 
+    public String getDescription() {
+        return taskName;
+    }
 
     @Override
     public String toString() {

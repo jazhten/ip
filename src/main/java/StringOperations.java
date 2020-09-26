@@ -46,7 +46,7 @@ public class StringOperations {
      * Searches for the corresponding timeframe
      * Assumes the identifier only is valid on first appearance
      *
-     * @param input by the user in which the 'event' or 'deadline' has been cleaned
+     * @param input    by the user in which the 'event' or 'deadline' has been cleaned
      * @param taskType the nature of the tasks, event or deadline etc.
      * @return deadline or timeframe for event
      * @throws DukeException if the format identifier is missing or time data is missing

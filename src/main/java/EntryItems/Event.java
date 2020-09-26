@@ -1,8 +1,8 @@
 package EntryItems;
 
 /**
- *  Class to describe the attributes in an Event.
- *  Includes toString() override and a wrapper to help save the event to the data file
+ * Class to describe the attributes in an Event.
+ * Includes toString() override and a wrapper to help save the event to the data file
  */
 public class Event extends Task {
     String timeFrame;
@@ -16,11 +16,11 @@ public class Event extends Task {
     public String saveValue() {
         String result;
         if (this.isDone) {
-            result =  "E|1|";
+            result = "E|1|";
         } else {
-            result =  "E|0|";
+            result = "E|0|";
         }
-        result  += (this.taskName + "|" + this.timeFrame);
+        result += (this.taskName + "|" + this.timeFrame);
         return result;
     }
 

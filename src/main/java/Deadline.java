@@ -22,16 +22,15 @@ public class Deadline extends Task {
     public String saveValue() {
         String result;
         if (this.isDone) {
-            result =  "E|1|";
+            result = "E|1|";
         } else {
-            result =  "E|0|";
+            result = "E|0|";
         }
-        result  += (this.taskName + "|" + this.by);
+        result += (this.taskName + "|" + this.by);
         return result;
     }
 
     /**
-     *
      * @return Formatted description of deadline
      */
     @Override

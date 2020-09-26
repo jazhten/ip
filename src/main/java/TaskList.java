@@ -79,4 +79,14 @@ public class TaskList {
     public static void insertTask(Task inputTask) {
         taskList.add(inputTask);
     }
+
+    public static ArrayList<Task> findTasks(String searchString) {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        for (Task currentTask : taskList) {
+            if (currentTask.getDescription().contains(searchString)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
+    }
 }

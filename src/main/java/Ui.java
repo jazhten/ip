@@ -37,7 +37,7 @@ public class Ui {
      * Includes the letter heading ([D], [E] etc) and their status of completion.
      * Completion status signified by a cross of a tick.
      *
-     * @param tasks list of tasks at the current program state
+     * @param tasks     list of tasks at the current program state
      * @param taskIndex number of tasks, the index to loop to while printing
      */
     public static void printList(ArrayList<Task> tasks, int taskIndex) {
@@ -51,11 +51,18 @@ public class Ui {
         }
     }
 
+    public static void printSearchedList(ArrayList<Task> tasks, int taskIndex) {
+        System.out.println("\tHere are tasks matching the description we found in your list:");
+        for (int i = 0; i < taskIndex; i++) {
+            System.out.println("\t" + (i + 1) + ". " + tasks.get(i).toString());
+        }
+    }
+
 
     /**
      * Prints the response when a task is marked as completed by a user.
      *
-     * @param tasks ArrayList of tasks at the current program state
+     * @param tasks     ArrayList of tasks at the current program state
      * @param taskIndex the index of the task which has been marked as completed
      */
     public static void completeTask(ArrayList<Task> tasks, int taskIndex) {
@@ -85,9 +92,14 @@ public class Ui {
         System.out.println(DukeException.ExceptionResponse.EXCEPTION_COMPLETE_UNDEFINED_TASK);
     }
 
+    public static void printNotFoundException() {
+        System.out.println(DukeException.ExceptionResponse.EXCEPTION_NOT_FOUND_EXCEPTION);
+    }
+
     public static void endProgram() {
         System.out.println("Goodbye. May the Force be with you.");
 
     }
+
 
 }

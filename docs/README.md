@@ -7,7 +7,7 @@ Add a task to the current TaskList
     todo
     deadline
     event
-   <br>
+<br>
 ### List Tasks
 Lists the current tasks and their state.
 ### Delete Tasks

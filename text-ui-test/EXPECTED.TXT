@@ -52,4 +52,4 @@ Hello there General Kenobi. You are our last hope.
 	6. [E][✘]  project meeting  (at: Mon 2-4pm)
 ♘ : 	Nice! I've marked this task as done: 
 	  [T][✓]  read book
-♘ : Bye. May the Force be with you.
+♘ : Goodbye. May the Force be with you.

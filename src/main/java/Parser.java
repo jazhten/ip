@@ -2,19 +2,27 @@ import EntryItems.Event;
 import EntryItems.Task;
 import EntryItems.Todo;
 
-
+/**
+ * Used to parse all the user input
+ * Tracks if the 'bye' command has been sent and sends the signal to Duke to terminate
+ */
 public class Parser {
     protected boolean isExit;
 
     public Parser() {
         this.isExit = false;
-
     }
 
     public boolean getTerminationStatus() {
         return isExit;
     }
 
+    /**
+     * Main 'body' of the chatbot
+     * Identifies the nature of the input and passes off the inputs to the various class to handle
+     *
+     * @param input which is keyed in by the user
+     */
     public void handleInput(String input) {
         String[] splitInput = input.split(" ");
         String cmd = splitInput[0];
@@ -30,6 +38,7 @@ public class Parser {
             return;
 
         case "done":
+            //finds the target taskNum by getting the integer after the 'done ' identifier
             int taskNum = Integer.parseInt(splitInput[1]) - 1;
             try {
                 TaskList.completeTask(taskNum);
@@ -82,7 +91,6 @@ public class Parser {
             }
             String deadlineInputDescription = StringOperations.getDescription(input);
             TaskList.insertTask(new Deadline(deadlineInputDescription, deadlineOperation));
-            //storedTasks.add(new Deadline(deadlineInputDescription, deadlineOperation));
             Ui.printAddResponse(TaskList.queryLatestTask(),
                     TaskList.getTaskIndex() + 1);
             TaskList.incrementIndex();

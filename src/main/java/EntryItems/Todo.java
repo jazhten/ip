@@ -1,5 +1,9 @@
 package EntryItems;
 
+/**
+ * Describes the most basic todo task
+ * Includes the toString() and saveValue() methods for proper formatting
+ */
 public class Todo extends Task {
     public Todo(String description) {
         super(description);

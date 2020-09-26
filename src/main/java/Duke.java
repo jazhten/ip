@@ -1,20 +1,25 @@
-import EntryItems.Task;
-
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Duke, the friendly ChatBot that handles your tasks.
+ */
 public class Duke {
 
-    private Storage storage;
+    private final Storage storage;
     private TaskList taskList;
-    private Ui ui;
+    private final Ui ui;
 
     public static void main(String[] args) {
-     new Duke("data/Duke.txt").run();
+        new Duke("data/Duke.txt").run();
     }
 
-    public void run(){
+    /**
+     * Main running body of the program
+     * Handles the scanning of input
+     * Waits for getTerminationStatus from the parser before ending the program
+     */
+    public void run() {
         ui.startUpDuke();
         Scanner inputScanner = new Scanner(System.in);
         Parser parseManager = new Parser();
@@ -24,6 +29,11 @@ public class Duke {
         }
     }
 
+    /**
+     * Inits Ui and storage objects
+     *
+     * @param filePath which is where the save data is loaded on disk
+     */
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);

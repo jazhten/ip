@@ -1,11 +1,15 @@
-import EntryItems.Task;
-
-import java.util.ArrayList;
-
+/**
+ * Used to handle the more complicated operations regarding string manipulation
+ * Extracted from the parser class for readability
+ */
 public class StringOperations {
 
-    /*
-    Params : input
+    /**
+     * Finds the first occurrence of the space ' ' character in the input string
+     *
+     * @param input the input by the user
+     * @return index of first space
+     * @throws DukeException in the case of empty input
      */
     public static int getFirstSpace(String input) throws DukeException {
         int index = input.indexOf(" ");
@@ -15,9 +19,13 @@ public class StringOperations {
         return index;
     }
 
-    /*
-    Function to find the starting index of the description in events/deadlines where they
-    the start of the timing details are denoted by a "/"
+
+    /**
+     * Function to find the starting index of the description in events/deadlines where they
+     * the start of the timing details are denoted by a "/"
+     *
+     * @param input by the user
+     * @return String which is the deadline or event time
      */
     public static String getDescription(String input) {
         int startPoint = input.indexOf("/");
@@ -30,9 +38,18 @@ public class StringOperations {
         }
     }
 
-    /*
-    Function to return the deadline, found after "/by" or "/at"
-        -assumes "/by" and "/at" only occurs once in the start of the deadline
+
+    /**
+     * Used to find the timeframe of the current tasks. T
+     * This is referenced using the /at or /by identifier
+     * Checks for the correct identifier based on the taskType input
+     * Searches for the corresponding timeframe
+     * Assumes the identifier only is valid on first appearance
+     *
+     * @param input by the user in which the 'event' or 'deadline' has been cleaned
+     * @param taskType the nature of the tasks, event or deadline etc.
+     * @return deadline or timeframe for event
+     * @throws DukeException if the format identifier is missing or time data is missing
      */
     public static String getTimeline(String input, String taskType) throws DukeException {
         String searchString = "";

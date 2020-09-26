@@ -1,5 +1,10 @@
 package EntryItems;
 
+/**
+ * Parent class of all the various tasks Duke handles
+ * Describes teh various names and status of the tasks
+ * Provides the basic toString() and saveValue() methods which wil be overwritten in the children classes
+ */
 public class Task {
     protected final String taskName;
     protected boolean isDone;
@@ -13,9 +18,7 @@ public class Task {
     public String saveValue() {
         return "";
     }
-    public String getDescription() {
-        return taskName;
-    }
+
     public void MarkDone() {
         this.isDone = true;
     }

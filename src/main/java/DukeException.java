@@ -1,8 +1,12 @@
+/**
+ * Handles the various exceptions which may be encountered during the program's lifetime.
+ * Some are slightly unnecessary but were included for the 'personality' of the Duke Bot
+ */
 public class DukeException extends Exception {
 
     public enum ExceptionResponse {
         EXCEPTION_NO_DESCRIPTION("\tMissed the Description you have, young padawan..."),
-        EXCEPTION_NO_TIME_DATA("\tOopsies! Mesa thinksa yousa missed the time"),//jar jar binks btw
+        EXCEPTION_NO_TIME_DATA("\tOopsies! Mesa thinksa yousa missed the time"),
         EXCEPTION_NO_FORMAT_IDENTIFIER("\tThe force requires you provide the correct identifier (/by /at)."),
         EXCEPTION_COMPLETE_UNDEFINED_TASK("\tToo hasty you are, the task has not been defined yet"),
         EXCEPTION_UNIDENTIFIED_INPUT("\tThese are not the inputs you are looking for...Please input something"),

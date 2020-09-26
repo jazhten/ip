@@ -1,5 +1,9 @@
 package EntryItems;
 
+/**
+ *  Class to describe the attributes in an Event.
+ *  Includes toString() override and a wrapper to help save the event to the data file
+ */
 public class Event extends Task {
     String timeFrame;
 

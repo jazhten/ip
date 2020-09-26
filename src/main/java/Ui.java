@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class Ui {
 
+    /**
+     * Familiar welcoming logo for Duke which portrays the iconic scene in Star Wars
+     */
     void startUpDuke() {
         final String YODA_LOGO = "                    .==.\n" +
                 "                   ()''()-.\n" +
@@ -28,9 +31,15 @@ public class Ui {
         System.out.println("\tNow you have " + index + " tasks in the list");
     }
 
+
     /**
-     * Prints all tasks in the list with the letter heading [D],[E] and status of completion.
-     **/
+     * Prints all the current tasks in the taskList.
+     * Includes the letter heading ([D], [E] etc) and their status of completion.
+     * Completion status signified by a cross of a tick.
+     *
+     * @param tasks list of tasks at the current program state
+     * @param taskIndex number of tasks, the index to loop to while printing
+     */
     public static void printList(ArrayList<Task> tasks, int taskIndex) {
         if (taskIndex > 0) {
             System.out.println("\tHere are the tasks in your list:");
@@ -42,9 +51,13 @@ public class Ui {
         }
     }
 
+
     /**
-     * Function to print the response when a task is marked as completed by the user.
-     **/
+     * Prints the response when a task is marked as completed by a user.
+     *
+     * @param tasks ArrayList of tasks at the current program state
+     * @param taskIndex the index of the task which has been marked as completed
+     */
     public static void completeTask(ArrayList<Task> tasks, int taskIndex) {
         System.out.println("\tNice! I've marked this task as done: ");
         System.out.println("\t  " + tasks.get(taskIndex).toString());
@@ -73,7 +86,7 @@ public class Ui {
     }
 
     public static void endProgram() {
-        System.out.println("Bye. May the Force be with you.");
+        System.out.println("Goodbye. May the Force be with you.");
 
     }
 

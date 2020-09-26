@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Handles the saving and loading operations of the taskList from disk
+ * <p>
+ * 2 main methods included, save and load
+ */
 public class Storage {
 
     protected static String filePath;
@@ -16,6 +21,13 @@ public class Storage {
     Storage(String filePath) {
         this.filePath = filePath;
     }
+
+    /**
+     * Loads the saved file (if any) from the filePath described
+     *
+     * @return ArrayList<Task> taskList which is the previously saved tasks
+     * @throws FileNotFoundException if file is not found and Duke will then create a fresh one
+     */
     public static ArrayList<Task> loadSaveFile() throws FileNotFoundException {
         File directory = new File("data");
         if (!directory.exists()) {
@@ -53,6 +65,11 @@ public class Storage {
     }
 
 
+    /**
+     * Writes the current state of taskList to the disk
+     *
+     * @param taskList the current state of the tasks
+     */
     public static void saveData(ArrayList<Task> taskList) {
         try {
             FileWriter fw = new FileWriter("data/Duke.txt");

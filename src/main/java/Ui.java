@@ -98,8 +98,14 @@ public class Ui {
 
     public static void endProgram() {
         System.out.println("Goodbye. May the Force be with you.");
-
     }
 
+    public static void printInvalidInputTimeException() {
+        System.out.println(DukeException.ExceptionResponse.EXCEPTION_INVALID_SEARCH_TIME);
+    }
+
+    public static void printInvalidInputDateException() {
+        System.out.println(DukeException.ExceptionResponse.EXCEPTION_INVALID_SEARCH_DATE);
+    }
 
 }

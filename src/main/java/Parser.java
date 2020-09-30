@@ -85,6 +85,62 @@ public class Parser {
             Storage.saveData(TaskList.getTaskList());
             return;
 
+        case "date":
+            String searchDate;
+            try {
+                searchDate = input.substring(StringOperations.getFirstSpace(input));
+            } catch (DukeException e) {
+                Ui.printBasicDukeException(e);
+                return;
+            }
+            ArrayList<Task> dateSearchResults;
+            try {
+                dateSearchResults = TaskList.getEventsAfterDate(searchDate);
+            } catch (NullPointerException e) {
+                Ui.printInvalidInputDateException();
+                return;
+            }
+            int numDateResults = 0;
+            try {
+                numDateResults = dateSearchResults.size();
+            } catch (NullPointerException e) {
+                Ui.printNotFoundException();
+            }
+            if (numDateResults == 0) {
+                Ui.printNotFoundException();
+                return;
+            }
+            Ui.printSearchedList(dateSearchResults, numDateResults);
+            return;
+
+        case "time":
+            String searchTime;
+            try {
+                searchTime = input.substring(StringOperations.getFirstSpace(input));
+            } catch (DukeException e) {
+                Ui.printBasicDukeException(e);
+                return;
+            }
+            ArrayList<Task> timeSearchResults;
+            try {
+                timeSearchResults = TaskList.getEventsAfterTime(searchTime);
+            } catch (NullPointerException e) {
+                Ui.printInvalidInputTimeException();
+                return;
+            }
+            int numTimeResults = 0;
+            try {
+                numTimeResults = timeSearchResults.size();
+            } catch (NullPointerException e) {
+                Ui.printNotFoundException();
+            }
+            if (numTimeResults == 0) {
+                Ui.printNotFoundException();
+                return;
+            }
+            Ui.printSearchedList(timeSearchResults, numTimeResults);
+            return;
+            
         case "find":
             String searchString;
             try {

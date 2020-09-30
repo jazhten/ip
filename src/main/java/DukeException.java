@@ -11,6 +11,8 @@ public class DukeException extends Exception {
         EXCEPTION_COMPLETE_UNDEFINED_TASK("\tToo hasty you are, the task has not been defined yet"),
         EXCEPTION_UNIDENTIFIED_INPUT("\tThese are not the inputs you are looking for...Please input something"),
         EXCEPTION_IO_EXCEPTION("\tHmmm, it seems there has been an IO Error, why don't you give it another try"),
+        EXCEPTION_INVALID_SEARCH_DATE("\tWhen is that???!!! Please put in a proper date in the format : 'yyyy-mm-dd'"),
+        EXCEPTION_INVALID_SEARCH_TIME("\tWhat time already gennermen?! Please input a proper time format HH:MM'"),
         EXCEPTION_NOT_FOUND_EXCEPTION("\tHey buddy, it seems like we don't have what you're looking for!");
         private String exception;
 

@@ -1,6 +1,10 @@
 import EntryItems.Task;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * The list of tasks that are currently assigned to the user
@@ -89,4 +93,63 @@ public class TaskList {
         }
         return taskResults;
     }
+
+    public static ArrayList<Task> getEventsAfterDate(String searchedDate) throws NullPointerException {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        LocalDate targetDate = findDate(searchedDate);
+        if (targetDate == null) {
+            throw new NullPointerException();
+        }
+        for (Task currentTask : taskList) {
+            LocalDate taskDate = findDate(currentTask.toString());
+            if (taskDate != null && taskDate.isAfter(targetDate)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
+    }
+
+    public static ArrayList<Task> getEventsAfterTime(String searchedDate) throws NullPointerException {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        LocalTime targetTime = findTime(searchedDate);
+        if (targetTime == null) {
+            throw new NullPointerException();
+        }
+        for (Task currentTask : taskList) {
+            LocalTime taskTime = findTime(currentTask.toString());
+            if (taskTime != null && taskTime.isAfter(targetTime)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
+    }
+
+    public static LocalDate findDate(String inputString) {
+        Pattern pattern = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");  //Extracts in the form yyyy-mm-dd
+        Matcher matcher = pattern.matcher(inputString);
+        LocalDate date = null;
+        try {
+            if (matcher.find()) {
+                date = LocalDate.parse(matcher.group());
+            }
+        } catch (Exception e) {
+            date = null;
+        }
+        return date;
+    }
+
+    public static LocalTime findTime(String inputString) {
+        LocalTime time = null;
+        Pattern pattern = Pattern.compile("\\d{2}:\\d{2}"); //Extracts time in the format HH:MM
+        Matcher matcher = pattern.matcher(inputString);
+        try {
+            if (matcher.find()) {
+                time = LocalTime.parse(matcher.group());
+            }
+        } catch (Exception e) {
+            time = null;
+        }
+        return time;
+    }
+
 }

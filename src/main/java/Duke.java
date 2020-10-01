@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Duke {
 
     private final Storage storage;
-    private TaskList taskList;
     private final Ui ui;
 
     public static void main(String[] args) {
@@ -35,7 +34,7 @@ public class Duke {
     }
 
     /**
-     * Inits Utility.Ui and storage objects
+     * Inits Ui, Storage and taskList objects
      *
      * @param filePath which is where the save data is loaded on disk
      */
@@ -43,9 +42,9 @@ public class Duke {
         ui = new Ui();
         storage = new Storage(filePath);
         try {
-            taskList = new TaskList(storage.loadSaveFile());
+            new TaskList(storage.loadSaveFile());
         } catch (FileNotFoundException e) {
-            taskList = new TaskList();
+            new TaskList();
         }
     }
 }

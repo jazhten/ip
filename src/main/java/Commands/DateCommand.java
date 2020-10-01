@@ -1,12 +1,15 @@
 package Commands;
 
-import EntryItems.Task;
+import TaskClasses.Task;
 import Utility.TaskList;
 import Utility.Ui;
 
 import java.util.ArrayList;
 
-
+/**
+ * Date command. Used to find tasks {before/on/after} the date searched
+ * input format : `date {before/on/after} 1900-01-01`
+ */
 public class DateCommand extends Command {
     String searchDate;
     String cmd;
@@ -20,6 +23,10 @@ public class DateCommand extends Command {
         extractCommand();
     }
 
+    /**
+     * Extracts the command {before/on/after} and the searchedDate
+     * Also verifies if the input is valid before allowing the process() to run
+     */
     private void extractCommand() {
         try {
             String[] splitInput = input.split(" ");
@@ -35,18 +42,21 @@ public class DateCommand extends Command {
         }
     }
 
+    /**
+     *  Search for the tasks with date {before/on/after} the input date
+     */
     @Override
     public void process() {
         try {
             switch (cmd) {
             case "before":
-                dateSearchResults = TaskList.getEventsBeforeDate(searchDate);
+                dateSearchResults = TaskList.getTasksBeforeDate(searchDate);
                 break;
             case "after":
-                dateSearchResults = TaskList.getEventsAfterDate(searchDate);
+                dateSearchResults = TaskList.getTasksAfterDate(searchDate);
                 break;
             case "on":
-                dateSearchResults = TaskList.getEventsOnDate(searchDate);
+                dateSearchResults = TaskList.getTasksOnDate(searchDate);
                 break;
             }
         } catch (NullPointerException e) {

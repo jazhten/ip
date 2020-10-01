@@ -1,8 +1,11 @@
 package Commands;
 
-import EntryItems.Deadline;
+import TaskClasses.Deadline;
 import Utility.*;
 
+/**
+ * Handles `deadline` command
+ */
 public class DeadlineCommand extends Command {
 
     String deadlineOperation;
@@ -13,6 +16,12 @@ public class DeadlineCommand extends Command {
         cmd = input.split(" ")[0];
     }
 
+    /**
+     * Processes the deadline to be added to the tasklist
+     * Adds deadline to the taskList
+     * Prints responses to the user
+     */
+    @Override
     public void process() {
         try {
             deadlineOperation = StringOperations.getTimeline(input, cmd);

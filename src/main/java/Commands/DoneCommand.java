@@ -4,6 +4,9 @@ import Utility.Storage;
 import Utility.TaskList;
 import Utility.Ui;
 
+/**
+ * Handles the `done` command
+ */
 public class DoneCommand extends Command {
     int index;
 
@@ -13,6 +16,10 @@ public class DoneCommand extends Command {
 
     }
 
+    /**
+     * Marks the task specified at the index as done.
+     * Calls ui functions that responds to the user
+     */
     public void process() {
         try {
             TaskList.completeTask(index);

@@ -11,4 +11,11 @@ event project meeting /at Mon 2-4pm
 delete 2
 list
 done 1
+deadline submit iP /by 2020-10-02 at time 23:59
+event celebrate /at 2020-10-03 at 08:00
+todo study really hard before 2020-12-01 10:15
+date on 2020-10-03
+time after 12:00
+time on 08:00
+date before 2020-10-15
 bye

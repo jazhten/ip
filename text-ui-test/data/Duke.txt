@@ -4,3 +4,6 @@ T|1| join sports club
 T|0| borrow book
 E|0| return book |Sunday
 E|0| project meeting |Mon 2-4pm
+E|0| submit iP |2020-10-02 at time 23:59
+E|0| celebrate |2020-10-03 at 08:00
+T|0| study really hard before 2020-12-01 10:15

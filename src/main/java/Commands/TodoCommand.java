@@ -1,8 +1,11 @@
 package Commands;
 
-import EntryItems.Todo;
+import TaskClasses.Todo;
 import Utility.*;
 
+/**
+ * Handles `todo` command
+ */
 public class TodoCommand extends Command {
     String description;
 
@@ -11,6 +14,11 @@ public class TodoCommand extends Command {
         description = "";
     }
 
+    /**
+     * Processes the todo to be added to the tasklist
+     * Adds todo to the taskList
+     * Prints responses to the user
+     */
     @Override
     public void process() {
         try {

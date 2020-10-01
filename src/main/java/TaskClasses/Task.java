@@ -1,4 +1,4 @@
-package EntryItems;
+package TaskClasses;
 
 /**
  * Parent class of all the various tasks Duke handles

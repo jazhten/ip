@@ -1,9 +1,13 @@
 package Utility;
 
-import EntryItems.Task;
+import TaskClasses.Task;
 
 import java.util.ArrayList;
 
+/**
+ * Handles all the user facing responses by the bot
+ * Also includes wrapper for error messages
+ */
 public class Ui {
 
     /**
@@ -53,6 +57,12 @@ public class Ui {
         }
     }
 
+    /**
+     * Prints the list fed in through the parameter tasks. Used for find, date and time functions
+     *
+     * @param tasks
+     * @param taskIndex
+     */
     public static void printSearchedList(ArrayList<Task> tasks, int taskIndex) {
         System.out.println("\tHere are tasks matching the description we found in your list:");
         for (int i = 0; i < taskIndex; i++) {
@@ -72,6 +82,12 @@ public class Ui {
         System.out.println("\t  " + tasks.get(taskIndex).toString());
     }
 
+    /**
+     * Prints the response when a task is deleted by a user
+     *
+     * @param tasks
+     * @param numTaskRemaining
+     */
     public static void deleteTask(Task tasks, int numTaskRemaining) {
         System.out.println("\tHmmm removed this task, I have:");
         System.out.println("\t  " + tasks.toString());

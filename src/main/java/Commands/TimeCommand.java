@@ -1,11 +1,15 @@
 package Commands;
 
-import EntryItems.Task;
+import TaskClasses.Task;
 import Utility.TaskList;
 import Utility.Ui;
 
 import java.util.ArrayList;
 
+/**
+ * Time command. Used to find tasks {before/on/after} the time searched
+ * input format : `time {before/on/after} 12:25`
+ */
 public class TimeCommand extends Command {
 
     private String searchTime;
@@ -21,6 +25,10 @@ public class TimeCommand extends Command {
 
     }
 
+    /**
+     * Extracts the command {before/on/after} and the searchedTime
+     * Also verifies if the input is valid before allowing the process() to run
+     */
     private void extractCommand() {
         try {
             String[] splitInput = input.split(" ");
@@ -36,18 +44,21 @@ public class TimeCommand extends Command {
         }
     }
 
+    /**
+     *  Search for the tasks with time {before/on/after} the input time
+     */
     @Override
     public void process() {
         try {
             switch (cmd) {
             case "before":
-                timeSearchResults = TaskList.getEventsBeforeTime(searchTime);
+                timeSearchResults = TaskList.getTasksBeforeTime(searchTime);
                 break;
             case "after":
-                timeSearchResults = TaskList.getEventsAfterTime(searchTime);
+                timeSearchResults = TaskList.getTasksAfterTime(searchTime);
                 break;
             case "on":
-                timeSearchResults = TaskList.getEventsOnTime(searchTime);
+                timeSearchResults = TaskList.getTasksOnTime(searchTime);
                 break;
             }
         } catch (NullPointerException e) {

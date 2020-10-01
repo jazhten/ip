@@ -20,13 +20,13 @@ public class Parser {
 
     /**
      * Main 'body' of the chatbot
-     * Identifies the nature of the input and passes off the inputs to the various class to handle
+     * Identifies the nature of the input and passes off the inputs to the various Command classes to handle
      *
      * @param input which is keyed in by the user
      */
     public void handleInput(String input) {
         String cmd = input.split(" ")[0];
-        
+
         switch (cmd) {
 
         case "list":

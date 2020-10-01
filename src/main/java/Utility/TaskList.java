@@ -1,6 +1,6 @@
 package Utility;
 
-import EntryItems.Task;
+import TaskClasses.Task;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 /**
  * The list of tasks that are currently assigned to the user
  * Performs all the necessary functions like incrementing task index and retrieving tasks
+ * Includes the funcitons that require querying of the taskList
  */
 public class TaskList {
 
@@ -19,6 +20,7 @@ public class TaskList {
 
     /**
      * Constructor
+     * Used when no prior save data is found.
      */
     public TaskList() {
         taskList = new ArrayList<>();
@@ -74,10 +76,22 @@ public class TaskList {
         taskList.remove(queryTask(targetTaskNum));
     }
 
+    /**
+     * Returns the Task object at the taskIndex specified
+     *
+     * @param taskIndex
+     * @return Task object
+     */
     public static Task queryTask(int taskIndex) {
         return taskList.get(taskIndex);
     }
 
+    /**
+     * Query the latest task that has been added to the taskList
+     * Used mainly for printing out responses after commands by the user
+     *
+     * @return Task object
+     */
     public static Task queryLatestTask() {
         return taskList.get(currentTaskIndex);
     }
@@ -86,6 +100,12 @@ public class TaskList {
         taskList.add(inputTask);
     }
 
+    /**
+     * Finds all the tasks with the searchString inside the taskList
+     *
+     * @param searchString
+     * @return ArrayList<Task> which contains the searchString
+     */
     public static ArrayList<Task> findTasks(String searchString) {
         ArrayList<Task> taskResults = new ArrayList<>();
         for (Task currentTask : taskList) {
@@ -96,7 +116,14 @@ public class TaskList {
         return taskResults;
     }
 
-    public static ArrayList<Task> getEventsAfterDate(String searchedDate) throws NullPointerException {
+    /**
+     * Queries taskList for all tasks after (exclusive) the specified searchDate
+     *
+     * @param searchedDate
+     * @return ArrayList of tasks that have dates in the description after searchedDate or empty list if none found
+     * @throws NullPointerException if input date format is wrong
+     */
+    public static ArrayList<Task> getTasksAfterDate(String searchedDate) throws NullPointerException {
         ArrayList<Task> taskResults = new ArrayList<>();
         LocalDate targetDate = findDate(searchedDate);
         if (targetDate == null) {
@@ -111,7 +138,14 @@ public class TaskList {
         return taskResults;
     }
 
-    public static ArrayList<Task> getEventsBeforeDate(String searchedDate) throws NullPointerException {
+    /**
+     * Queries taskList for all tasks before (exclusive) the specified searchDate
+     *
+     * @param searchedDate
+     * @return ArrayList of tasks that have dates in the description after searchedDate or empty list if none found
+     * @throws NullPointerException if input date format is wrong
+     */
+    public static ArrayList<Task> getTasksBeforeDate(String searchedDate) throws NullPointerException {
         ArrayList<Task> taskResults = new ArrayList<>();
         LocalDate targetDate = findDate(searchedDate);
         if (targetDate == null) {
@@ -126,7 +160,14 @@ public class TaskList {
         return taskResults;
     }
 
-    public static ArrayList<Task> getEventsOnDate(String searchedDate) throws NullPointerException {
+    /**
+     * Queries taskList for all tasks on the specified searchDate
+     *
+     * @param searchedDate
+     * @return ArrayList of tasks that have dates in the description after searchedDate or emptylist if none found
+     * @throws NullPointerException if input date format is wrong
+     */
+    public static ArrayList<Task> getTasksOnDate(String searchedDate) throws NullPointerException {
         ArrayList<Task> taskResults = new ArrayList<>();
         LocalDate targetDate = findDate(searchedDate);
         if (targetDate == null) {
@@ -141,9 +182,16 @@ public class TaskList {
         return taskResults;
     }
 
-    public static ArrayList<Task> getEventsAfterTime(String searchedDate) throws NullPointerException {
+    /**
+     * Queries taskList for all tasks after (exclusive) the specified searchTime
+     *
+     * @param searchedTime
+     * @return ArrayList of tasks that have dates in the description after searchedTime or emptylist if none found
+     * @throws NullPointerException if input date format is wrong
+     */
+    public static ArrayList<Task> getTasksAfterTime(String searchedTime) throws NullPointerException {
         ArrayList<Task> taskResults = new ArrayList<>();
-        LocalTime targetTime = findTime(searchedDate);
+        LocalTime targetTime = findTime(searchedTime);
         if (targetTime == null) {
             throw new NullPointerException();
         }
@@ -156,9 +204,16 @@ public class TaskList {
         return taskResults;
     }
 
-    public static ArrayList<Task> getEventsBeforeTime(String searchedDate) throws NullPointerException {
+    /**
+     * Queries taskList for all tasks before (exclusive) the specified searchTime
+     *
+     * @param searchedTime
+     * @return ArrayList of tasks that have dates in the description after searchedTime or emptylist if none found
+     * @throws NullPointerException if input date format is wrong
+     */
+    public static ArrayList<Task> getTasksBeforeTime(String searchedTime) throws NullPointerException {
         ArrayList<Task> taskResults = new ArrayList<>();
-        LocalTime targetTime = findTime(searchedDate);
+        LocalTime targetTime = findTime(searchedTime);
         if (targetTime == null) {
             throw new NullPointerException();
         }
@@ -171,9 +226,16 @@ public class TaskList {
         return taskResults;
     }
 
-    public static ArrayList<Task> getEventsOnTime(String searchedDate) throws NullPointerException {
+    /**
+     * Queries taskList for all tasks at the specified searchTime
+     *
+     * @param searchedTime
+     * @return ArrayList of tasks that have dates in the description after searchedTime or emptylist if none found
+     * @throws NullPointerException if input date format is wrong
+     */
+    public static ArrayList<Task> getTasksOnTime(String searchedTime) throws NullPointerException {
         ArrayList<Task> taskResults = new ArrayList<>();
-        LocalTime targetTime = findTime(searchedDate);
+        LocalTime targetTime = findTime(searchedTime);
         if (targetTime == null) {
             throw new NullPointerException();
         }
@@ -186,6 +248,13 @@ public class TaskList {
         return taskResults;
     }
 
+    /**
+     * Returns any date in the format of 'YYYY-MM-DD' found in the inputString using regex
+     * If none found, null is returned
+     *
+     * @param inputString
+     * @return LocalDate, date found in string
+     */
     public static LocalDate findDate(String inputString) {
         Pattern pattern = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");  //Extracts in the form yyyy-mm-dd
         Matcher matcher = pattern.matcher(inputString);
@@ -200,6 +269,13 @@ public class TaskList {
         return date;
     }
 
+    /**
+     * Returns any time in the format of 'HH:MM' found in the inputString using regex
+     * If none found, null is returned
+     *
+     * @param inputString
+     * @return LocalTime, time found in string
+     */
     public static LocalTime findTime(String inputString) {
         LocalTime time = null;
         Pattern pattern = Pattern.compile("\\d{2}:\\d{2}"); //Extracts time in the format HH:MM

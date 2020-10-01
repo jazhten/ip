@@ -1,6 +1,6 @@
 package Commands;
 
-import EntryItems.Event;
+import TaskClasses.Event;
 import Utility.*;
 
 public class EventCommand extends Command {
@@ -8,11 +8,19 @@ public class EventCommand extends Command {
     String eventOperation;
     String cmd;
 
+    /**
+     * Handles `event` command
+     */
     public EventCommand(String input) {
         super(input);
         cmd = input.split(" ")[0];
     }
 
+    /**
+     * Processes the event to be added to the tasklist
+     * Adds event to the taskList
+     * Prints responses to the user
+     */
     @Override
     public void process() {
         try {

@@ -1,4 +1,4 @@
-package EntryItems;
+package TaskClasses;
 
 /**
  * Class to describe the attributes in an Event.

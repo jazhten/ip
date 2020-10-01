@@ -1,10 +1,13 @@
 package Commands;
 
-import EntryItems.Task;
+import TaskClasses.Task;
 import Utility.Storage;
 import Utility.TaskList;
 import Utility.Ui;
 
+/**
+ * Handles `deadline` command
+ */
 public class DeleteCommand extends Command {
     int index;
 
@@ -13,6 +16,10 @@ public class DeleteCommand extends Command {
         this.index = Integer.parseInt(input.split(" ")[1]) - 1;
     }
 
+    /**
+     * Delete the process specified by the index input
+     * Calls the ui functions to respond to the user
+     */
     public void process() {
         Task targetTask;
         try {

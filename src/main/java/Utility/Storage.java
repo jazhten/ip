@@ -1,9 +1,9 @@
 package Utility;
 
-import EntryItems.Deadline;
-import EntryItems.Event;
-import EntryItems.Task;
-import EntryItems.Todo;
+import TaskClasses.Deadline;
+import TaskClasses.Event;
+import TaskClasses.Task;
+import TaskClasses.Todo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 /**
  * Handles the saving and loading operations of the taskList from disk
- * <p>
  * 2 main methods included, save and load
  */
 public class Storage {

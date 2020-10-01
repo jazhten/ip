@@ -1,4 +1,4 @@
-package EntryItems;
+package TaskClasses;
 
 /**
  * Describes the properties of the deadline

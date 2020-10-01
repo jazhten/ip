@@ -52,4 +52,22 @@ Hello there General Kenobi. You are our last hope.
 	6. [E][✘]  project meeting  (at: Mon 2-4pm)
 ♘ : 	Nice! I've marked this task as done: 
 	  [T][✓]  read book
+♘ : 	Got it. I've added this task:
+	[D][✘]  submit iP  (by: 2020-10-02 at time 23:59)
+	Now you have 7 tasks in the list
+♘ : 	Got it. I've added this task:
+	[E][✘]  celebrate  (at: 2020-10-03 at 08:00)
+	Now you have 8 tasks in the list
+♘ : 	Got it. I've added this task:
+	[T][✘]  study really hard before 2020-12-01 10:15
+	Now you have 9 tasks in the list
+♘ : 	Here are tasks matching the description we found in your list:
+	1. [E][✘]  celebrate  (at: 2020-10-03 at 08:00)
+♘ : 	Here are tasks matching the description we found in your list:
+	1. [D][✘]  submit iP  (by: 2020-10-02 at time 23:59)
+♘ : 	Here are tasks matching the description we found in your list:
+	1. [E][✘]  celebrate  (at: 2020-10-03 at 08:00)
+♘ : 	Here are tasks matching the description we found in your list:
+	1. [D][✘]  submit iP  (by: 2020-10-02 at time 23:59)
+	2. [E][✘]  celebrate  (at: 2020-10-03 at 08:00)
 ♘ : Goodbye. May the Force be with you.

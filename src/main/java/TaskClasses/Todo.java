@@ -1,4 +1,4 @@
-package EntryItems;
+package TaskClasses;
 
 /**
  * Describes the most basic todo task

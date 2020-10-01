@@ -1,3 +1,5 @@
+package Utility;
+
 import EntryItems.Task;
 
 import java.time.LocalDate;
@@ -109,6 +111,36 @@ public class TaskList {
         return taskResults;
     }
 
+    public static ArrayList<Task> getEventsBeforeDate(String searchedDate) throws NullPointerException {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        LocalDate targetDate = findDate(searchedDate);
+        if (targetDate == null) {
+            throw new NullPointerException();
+        }
+        for (Task currentTask : taskList) {
+            LocalDate taskDate = findDate(currentTask.toString());
+            if (taskDate != null && taskDate.isBefore(targetDate)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
+    }
+
+    public static ArrayList<Task> getEventsOnDate(String searchedDate) throws NullPointerException {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        LocalDate targetDate = findDate(searchedDate);
+        if (targetDate == null) {
+            throw new NullPointerException();
+        }
+        for (Task currentTask : taskList) {
+            LocalDate taskDate = findDate(currentTask.toString());
+            if (taskDate != null && taskDate.isEqual(targetDate)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
+    }
+
     public static ArrayList<Task> getEventsAfterTime(String searchedDate) throws NullPointerException {
         ArrayList<Task> taskResults = new ArrayList<>();
         LocalTime targetTime = findTime(searchedDate);
@@ -118,6 +150,36 @@ public class TaskList {
         for (Task currentTask : taskList) {
             LocalTime taskTime = findTime(currentTask.toString());
             if (taskTime != null && taskTime.isAfter(targetTime)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
+    }
+
+    public static ArrayList<Task> getEventsBeforeTime(String searchedDate) throws NullPointerException {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        LocalTime targetTime = findTime(searchedDate);
+        if (targetTime == null) {
+            throw new NullPointerException();
+        }
+        for (Task currentTask : taskList) {
+            LocalTime taskTime = findTime(currentTask.toString());
+            if (taskTime != null && taskTime.isBefore(targetTime)) {
+                taskResults.add(currentTask);
+            }
+        }
+        return taskResults;
+    }
+
+    public static ArrayList<Task> getEventsOnTime(String searchedDate) throws NullPointerException {
+        ArrayList<Task> taskResults = new ArrayList<>();
+        LocalTime targetTime = findTime(searchedDate);
+        if (targetTime == null) {
+            throw new NullPointerException();
+        }
+        for (Task currentTask : taskList) {
+            LocalTime taskTime = findTime(currentTask.toString());
+            if (taskTime != null && taskTime.equals(targetTime)) {
                 taskResults.add(currentTask);
             }
         }

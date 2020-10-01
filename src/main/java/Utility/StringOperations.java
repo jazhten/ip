@@ -1,3 +1,5 @@
+package Utility;
+
 /**
  * Used to handle the more complicated operations regarding string manipulation
  * Extracted from the parser class for readability

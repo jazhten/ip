@@ -1,3 +1,6 @@
+package Utility;
+
+import EntryItems.Deadline;
 import EntryItems.Event;
 import EntryItems.Task;
 import EntryItems.Todo;
@@ -18,7 +21,7 @@ public class Storage {
 
     protected static String filePath;
 
-    Storage(String filePath) {
+    public Storage(String filePath) {
         this.filePath = filePath;
     }
 

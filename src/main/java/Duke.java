@@ -1,3 +1,8 @@
+import Utility.Parser;
+import Utility.Storage;
+import Utility.TaskList;
+import Utility.Ui;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -30,7 +35,7 @@ public class Duke {
     }
 
     /**
-     * Inits Ui and storage objects
+     * Inits Utility.Ui and storage objects
      *
      * @param filePath which is where the save data is loaded on disk
      */

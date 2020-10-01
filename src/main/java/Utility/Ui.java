@@ -1,3 +1,5 @@
+package Utility;
+
 import EntryItems.Task;
 
 import java.util.ArrayList;
@@ -7,7 +9,7 @@ public class Ui {
     /**
      * Familiar welcoming logo for Duke which portrays the iconic scene in Star Wars
      */
-    void startUpDuke() {
+    public void startUpDuke() {
         final String YODA_LOGO = "                    .==.\n" +
                 "                   ()''()-.\n" +
                 "        .---.       ;--; /\n" +
@@ -106,6 +108,14 @@ public class Ui {
 
     public static void printInvalidInputDateException() {
         System.out.println(DukeException.ExceptionResponse.EXCEPTION_INVALID_SEARCH_DATE);
+    }
+
+    public static void printInvalidDateInputFormatException() {
+        System.out.println(DukeException.ExceptionResponse.EXCEPTION_INVALID_SEARCH_DATE_FORMAT);
+    }
+
+    public static void printInvalidTimeInputFormatException() {
+        System.out.println(DukeException.ExceptionResponse.EXCEPTION_INVALID_SEARCH_TIME_FORMAT);
     }
 
 }

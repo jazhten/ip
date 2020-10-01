@@ -1,4 +1,4 @@
-import EntryItems.Task;
+package EntryItems;
 
 /**
  * Describes the properties of the deadline

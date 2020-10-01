@@ -1,23 +1,4 @@
-E|0| something |1 Dec 2019
-E|1| as |20 Feb 2015
-E|0| as |20-10-1992
-E|0| as |20-10-1992
-E|0| some |20-10-1992
-E|0| some |21 Oct 202010:20
-E|0| some |21 Oct 2020
-E|0| some |21 Oct 2020
-E|0| some |21 Oct 2020
-E|0| some |21 Oct 2020 time : 10:20
-E|0| some |21 Oct 202010:20
-E|0| some |21 Oct 2020
-E|0| some |20:10
-T|0| something 
-T|0| asdas :201
-T|0| adasds :2020
-T|0| asjdaosdjaojei 12-12-2020
-T|0| seoje 12-12-2020
-T|0| stuff 2020-01-01
-T|0| more stuff 2020-10-10
-E|0| something |2020-10-12
-T|0| something at 22:10
-E|0| sleep |23:50
+T|1| stuff
+T|1| more stuff
+T|0| someetht 2020-01-01
+E|0| something |2010-01-01 time is 09:50

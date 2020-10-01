@@ -2,7 +2,7 @@
 For DukeWars
 ## Features 
 ### Add Tasks
-Add a task to the current TaskList
+Add a task to the current tasklist
 #### Types of tasks : 
     todo
     deadline
@@ -20,7 +20,17 @@ Marks the targeted task as completed. Shown in list command as a tick or cross.
 
 ### Find Tasks
 Find tasks in the tasklist. <br>
- Searches for instance of word input and returns it in the form of a list.
+Searches for instance of word input and returns it in the form of a list.
+
+### Find Tasks by Date
+Find tasks in the tasklist in the date input. <br>
+Searches for tasks on/before/after the specified date and returns it in the form of a list.
+<br> Example usage : `date before 2020-01-01`
+
+### Find Tasks by Time
+Find tasks in the tasklist in the time input. <br>
+Searches for tasks on/before/after the specified time and returns it in the form of a list.
+<br> Example usage : `time on 12:01`
 
 ### Save taskList state
 __Handled by program__ <br>

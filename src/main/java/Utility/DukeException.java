@@ -1,3 +1,5 @@
+package Utility;
+
 /**
  * Handles the various exceptions which may be encountered during the program's lifetime.
  * Some are slightly unnecessary but were included for the 'personality' of the Duke Bot
@@ -12,8 +14,11 @@ public class DukeException extends Exception {
         EXCEPTION_UNIDENTIFIED_INPUT("\tThese are not the inputs you are looking for...Please input something"),
         EXCEPTION_IO_EXCEPTION("\tHmmm, it seems there has been an IO Error, why don't you give it another try"),
         EXCEPTION_INVALID_SEARCH_DATE("\tWhen is that???!!! Please put in a proper date in the format : 'yyyy-mm-dd'"),
-        EXCEPTION_INVALID_SEARCH_TIME("\tWhat time already gennermen?! Please input a proper time format HH:MM'"),
+        EXCEPTION_INVALID_SEARCH_DATE_FORMAT("\tWhen is that?! Example command : 'date before 2020-01-01'"),
+        EXCEPTION_INVALID_SEARCH_TIME("\tIs time measured in parsecs? Please input a proper time format HH:MM'"),
+        EXCEPTION_INVALID_SEARCH_TIME_FORMAT("\t 12 parsecs is a unit of distance!! Example command : 'time after 01:00"),
         EXCEPTION_NOT_FOUND_EXCEPTION("\tHey buddy, it seems like we don't have what you're looking for!");
+
         private String exception;
 
         ExceptionResponse(String exceptionMessage) {

@@ -8,7 +8,7 @@ import Commands.*;
  * Tracks if the 'bye' command has been sent and sends the signal to Duke to terminate
  */
 public class Parser {
-    protected boolean isExit;
+    private boolean isExit;
 
     public Parser() {
         this.isExit = false;
@@ -80,6 +80,10 @@ public class Parser {
         case "event":
             EventCommand eventCmd = new EventCommand(input);
             eventCmd.process();
+            return;
+
+        case "help":
+            Command.helpCommand();
             return;
 
         case "":

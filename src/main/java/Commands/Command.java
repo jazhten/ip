@@ -27,4 +27,11 @@ public class Command {
     public static void listCommand() {
         Ui.printList(TaskList.getTaskList(), TaskList.getTaskIndex());
     }
+
+    /**
+     * Displays the help menu
+     */
+    public static void helpCommand() {
+        Ui.printHelpList();
+    }
 }

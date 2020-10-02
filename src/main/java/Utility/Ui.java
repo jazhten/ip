@@ -37,6 +37,9 @@ public class Ui {
         System.out.println("\tNow you have " + index + " tasks in the list");
     }
 
+    public static void printLineIcon() {
+        System.out.print("\u2658 : ");
+    }
 
     /**
      * Prints all the current tasks in the taskList.
@@ -85,13 +88,51 @@ public class Ui {
     /**
      * Prints the response when a task is deleted by a user
      *
-     * @param tasks
-     * @param numTaskRemaining
+     * @param tasks            target task to be deleted
+     * @param numTaskRemaining The numTaskRemaining is decremented before hand in the calling function
      */
     public static void deleteTask(Task tasks, int numTaskRemaining) {
         System.out.println("\tHmmm removed this task, I have:");
         System.out.println("\t  " + tasks.toString());
         System.out.println("\t Only " + numTaskRemaining + " tasks remain...");
+    }
+
+    /**
+     * Prints a list of all available commands and sample usage
+     */
+    public static void printHelpList() {
+        System.out.println(
+                " __    __   _______  __      .______   \n" +
+                        "|  |  |  | |   ____||  |     |   _  \\  \n" +
+                        "|  |__|  | |  |__   |  |     |  |_)  | \n" +
+                        "|   __   | |   __|  |  |     |   ___/  \n" +
+                        "|  |  |  | |  |____ |  `----.|  |      \n" +
+                        "|__|  |__| |_______||_______|| _|      \n");
+        printLineIcon();
+        System.out.println("Search for tasks before/on/after Date :");
+        System.out.println("\t\tdate before 2020-10-02");
+        printLineIcon();
+        System.out.println("Add a Deadline:");
+        System.out.println("\t\tdeadline report /by 2010-01-01 at 12:30");
+        printLineIcon();
+        System.out.println("Delete command:");
+        System.out.println("\t\tdelete 3");
+        printLineIcon();
+        System.out.println("Done command:");
+        System.out.println("\t\tdone 2");
+        printLineIcon();
+        System.out.println("Add an Event:");
+        System.out.println("\t\tevent celebrate /at 2020-10-02 23:59 on Tattoine");
+        printLineIcon();
+        System.out.println("Find tasks which contains substring:");
+        System.out.println("\t\tfind droids");
+        printLineIcon();
+        System.out.println("Search for tasks before/on/after time :");
+        System.out.println("\t\ttime on 10:10");
+        printLineIcon();
+        System.out.println("Add new Todo");
+        System.out.println("\t\ttodo read book");
+        System.out.println("Stay tuned for more Duke!");
     }
 
     public static void printIOException() {

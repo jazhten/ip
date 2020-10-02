@@ -28,7 +28,7 @@ public class Duke {
         Scanner inputScanner = new Scanner(System.in);
         Parser parseManager = new Parser();
         while (!parseManager.getTerminationStatus()) {
-            System.out.print("\u2658 : ");
+            Ui.printLineIcon();
             parseManager.handleInput(inputScanner.nextLine());
         }
     }

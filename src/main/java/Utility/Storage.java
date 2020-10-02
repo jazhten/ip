@@ -26,6 +26,7 @@ public class Storage {
 
     /**
      * Loads the saved file (if any) from the filePath described
+     * The information is seperated by |
      *
      * @return ArrayList<Task> taskList which is the previously saved tasks
      * @throws FileNotFoundException if file is not found and Duke will then create a fresh one
